@@ -1,7 +1,7 @@
 {
-    "token": "<your api token here>",
+    "token": "<Discord token here>",
     "prefix": "~",
     "suggestionChannel": "movie-night-polls",
-    "omdbApiKey": "<your api key here>",
+    "omdbApiKey": "<OMDB api key here>",
     "messageFormat": "${Title} (${Year})\nGenres: ${Genres}\nDescription: ${Description}\nTrailer: <${TrailerUrl}>"
 }
