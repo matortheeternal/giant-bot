@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
+const commands = require('./commands.js');
 
 const client = new Discord.Client();
-const config = require("./config.json");
-const commands = require('./commands.js');
+client.config = require("./config.json");
 
 // This event will run if the bot starts, and logs in, successfully.
 client.on("ready", () => {
@@ -25,15 +25,15 @@ client.on("guildDelete", guild => {
 // This event will run on every single message received, from any channel or DM.
 client.on("message", async message => {
   if (message.author.bot) return;
-  if (!message.content.startsWith(config.prefix)) return;
+  if (!message.content.startsWith(client.config.prefix)) return;
   
-  let args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+  let args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
   let commandKey = args.shift().toLowerCase();
 
   let command = commands[commandKey];
   if (!command) return;
 
-  command(client, config, message, args).catch(err => {
+  command(client, message, args).catch(err => {
     message.reply('Error: ' + err.message);
   });
 });

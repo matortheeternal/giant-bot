@@ -31,8 +31,8 @@ let getMovieEntry = async function(config, key) {
     return await request(url).catch(err => {});
 };
 
-let getSuggestionChannel = function(client, config) {
-    return client.channels.get(config.suggestionChannel);
+let getSuggestionChannel = function(client) {
+    return client.channels.get(client.config.suggestionChannel);
 };
 
 let formatMessage = function(formatStr, vars) {
@@ -42,16 +42,17 @@ let formatMessage = function(formatStr, vars) {
     });
 };
 
-let generateSuggestionMessage = function(config, entry, description) {
-    return formatMessage(config.messageFormat, {
+let generateSuggestionMessage = function(client, entry, description) {
+    return formatMessage(client.config.messageFormat, {
         ...entry,
         Description: description || entry.Plot
     });
 };
 
-let sendSuggestionMessage = function(config, channel, entry, description) {
-    let messageContent = generateSuggestionMessage(config, entry, description);
-    channel.send(messageContent);
+let sendSuggestionMessage = function(client, entry, description) {
+    let text = generateSuggestionMessage(client, entry, description);
+    let channel = getSuggestionChannel(client);
+    channel.send(text);
 };
 
 module.exports = {
