@@ -1,0 +1,13 @@
+{
+  "name": "discord-movie-bot",
+  "author": "Mator",
+  "version": "1.0.0",
+  "description": "A discord bot for movie related commands.",
+  "license": "MIT",
+  "repository": "https://github.com/matortheeternal/discord-movie-bot",
+  "scripts": {},
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  },
+  "devDependencies": {}
+}
