@@ -35,7 +35,8 @@ client.on("message", async message => {
 
   command(client, message, args).catch(err => {
     message.reply('Error: ' + err.message);
+    console.log(err.stack);
   });
 });
 
-client.login(config.token);
+client.login(client.config.token);

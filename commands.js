@@ -1,10 +1,9 @@
-const {SuggestionAlreadyExists} = require('./errors.js');
-
 const {
     tryToDelete,
-    getMovieEntry,
     sendSuggestionMessage
-} = require('./helpers.js');
+} = require('./helpers');
+
+const {getMovieEntry} = require('./omdbService');
 
 module.exports = {
     ping: async (client, message, args) => {
@@ -18,8 +17,9 @@ module.exports = {
         tryToDelete(message);
         message.reply(sayMessage);
     },
-    suggest: async (client, message, [search, description]) => {
-        let entry = await getMovieEntry(search);
-        sendSuggestionMessage(client, entry, description);
+    suggest: async (client, message, args) => {
+        let search = args.join(' ');
+        let entry = await getMovieEntry(client.config, search);
+        sendSuggestionMessage(client, message, entry);
     }
 };

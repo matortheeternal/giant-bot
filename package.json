@@ -5,9 +5,16 @@
   "description": "A discord bot for movie related commands.",
   "license": "MIT",
   "repository": "https://github.com/matortheeternal/discord-movie-bot",
-  "scripts": {},
-  "dependencies": {
-    "discord.js": "^12.2.0"
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "node-html-parser": "^1.2.19",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
