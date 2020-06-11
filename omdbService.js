@@ -1,7 +1,7 @@
 const util = require('util');
 const request = util.promisify(require('request'));
 const omdbApiUrl = 'http://www.omdbapi.com/?';
-const movieKeyExpr = /^(.+)( \(\d{4}\))?$/;
+const movieKeyExpr = /^(.+?)(?: \((\d{4})\))?$/;
 
 let getOmdbOptions = function(config, search) {
     let match = search.match(movieKeyExpr);
