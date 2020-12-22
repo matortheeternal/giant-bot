@@ -16,7 +16,7 @@ let getOmdbOptions = function(config, search) {
 
 let urlOptions = function(options) {
     return Object.keys(options)
-        .map(key => `${key}=${options[key]}`)
+        .map(key => `${key}=${encodeURIComponent(options[key])}`)
         .join('&');
 };
 
