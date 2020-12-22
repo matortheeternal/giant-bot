@@ -7,7 +7,7 @@
   "repository": "https://github.com/matortheeternal/discord-movie-bot",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon --inspect index.js"
   },
   "dependencies": {
     "discord.js": "^12.2.0",
