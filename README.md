@@ -1,3 +1,3 @@
-# discord-movie-bot
+# giant-bot
 
-A discord bot for movie related stuff.
+A discord bot that provides various functions.
