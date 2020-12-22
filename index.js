@@ -28,7 +28,7 @@ client.on("message", async message => {
   if (!message.content.startsWith(client.config.prefix)) return;
   
   let args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
-  let commandKey = args.shift().toLowerCase();
+  let commandKey = args.shift();
 
   let command = commands[commandKey];
   if (!command) return;
